@@ -1,0 +1,1 @@
+ASP.net MVC, Typescript, Angular, Bootstrap template project - for demos etc

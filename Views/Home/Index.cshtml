@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="container" ng-controller="Payroll.EmployeeController as EPCtrl">
+
+    <form role="form">
+
+
+        <fieldset class="margin-bottom-fieldset">
+            <legend class="margin-bottom-underline">Employee Details:</legend>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" required placeholder="First name" class="form-control" ng-model="EPCtrl.employee.firstName" />
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" value="" id="lastName" placeholder="Last name" class="form-control" ng-model="EPCtrl.employee.lastName" />
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" class="form-control" ng-model="EPCtrl.employee.department"
+                        ng-options="d for d in EPCtrl.departments"></select>
+            </div>
+        </fieldset>
+
+        <fieldset class="margin-bottom-fieldset">
+            <legend class="margin-bottom-underline">Payroll:</legend>
+            <div class="radio">
+                <label>Full Time<input name="payroll" type="radio" id="fulltime" value="ft" ng-model="EPCtrl.employee.payType" /></label>
+            </div>
+            <div class="radio">
+                <label>Part Time<input name="payroll" type="radio" id="parttime" value="pt" ng-model="EPCtrl.employee.payType" /></label>
+            </div>
+            <div class="radio">
+                <label>Contract<input name="payroll" type="radio" id="contract" value="ct" ng-model="EPCtrl.employee.payType" /></label>
+            </div>
+        </fieldset>
+
+        <fieldset class="margin-bottom-fieldset">
+            <legend class="margin-bottom-underline">Perks:</legend>
+
+            <div class="checkbox">
+                <label>Business Car<input id="car" type="checkbox" ng-model="EPCtrl.employee.perks.hasCompanyCar" /></label>
+            </div>
+
+            <div class="checkbox">
+                <label>Bonus<input id="bonus" type="checkbox" ng-model="EPCtrl.employee.perks.hasBonus" /></label>
+            </div>
+
+            <div class="checkbox">
+                <label>Shares<input id="shares" type="checkbox" ng-model="EPCtrl.employee.perks.hasShares" /></label>
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary btn-lg" ng-click="EPCtrl.submitForm()" />
+        </div>
+
+    </form>
+
+
+</div>

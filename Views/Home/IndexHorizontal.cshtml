@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "horizontal form";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="container" ng-controller="EPController as EPCtrl">
+
+    <form role="form" class="form-horizontal">
+
+        <fieldset class="margin-bottom-fieldset">
+            <legend class="margin-bottom-underline">Employee Details:</legend>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" id="firstName" required placeholder="First name" class="form-control" ng-model="EPCtrl.Employee.firstName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" value="" id="lastName" placeholder="Last name" class="form-control" ng-model="EPCtrl.Employee.lastName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="department">Department</label>
+                </div>
+                <div class="col-md-9">
+                    <select id="department" class="form-control" ng-model="EPCtrl.Employee.department" 
+                            ng-options="d for d in EPCtrl.Departments"></select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="margin-bottom-fieldset">
+            <legend class="margin-bottom-underline">Perks:</legend>
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="car">Business Car</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="checkbox">
+                        <input id="car" type="checkbox" ng-model="EPCtrl.Perks.BusinessCar" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="bonus">Bonus</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="checkbox">
+                        <input id="bonus" type="checkbox" ng-model="EPCtrl.Perks.Bonus" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="shares">Shares</label>
+                </div>
+                <div class="col-md-9">
+                    <div class="checkbox">
+                        <input id="shares" type="checkbox" ng-model="EPCtrl.Perks.Shares" />
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="margin-bottom-fieldset">
+            <legend class="margin-bottom-underline">Payroll:</legend>
+
+            <!--By defining different value and assigning same name and ng-model we handle radio button group-->
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>Full time</label>
+                </div>
+                <div class="col-md-9">
+                    <input name="payroll" type="radio" id="fulltime" value="ft" ng-model="EPCtrl.PayType" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>Part time</label>
+                </div>
+                <div class="col-md-9">
+                    <input name="payroll" type="radio" id="parttime" value="pt" ng-model="EPCtrl.PayType" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>Contract</label>
+                </div>
+                <div class="col-md-9">
+                    <input name="payroll" type="radio" id="Contract" value="ct" ng-model="EPCtrl.PayType" />
+                </div>
+            </div>
+
+        </fieldset>
+
+        <div class="form-group col-md-offset-2">
+            <input type="submit" value="Submit" class="btn btn-primary btn-lg" ng-click="EPCtrl.submitForm()" />
+        </div>
+
+    </form>
+
+
+</div>
